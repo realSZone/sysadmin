@@ -1,3 +1,4 @@
+#!/bin/bash
 if
     [[ `arch` == arm64 ]]; then
     echo "Architecture is Apple ARM"
