@@ -11,3 +11,4 @@ fi
 curl https://dl.google.com/drive-file-stream/GoogleDrive.dmg --output ./Downloads/GoogleDrive.dmg
 curl https://downloads.1password.com/mac/1Password.zip --output ./Downloads/1Password.zip
 curl https://desktop-downloads.asana.com/darwin_universal/prod/latest/Asana.dmg --output ./Downloads/Asana.dmg
+open https://openvpn.net/downloads/openvpn-connect-v3-macos.dmg
