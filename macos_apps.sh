@@ -6,7 +6,7 @@ if
     curl -L https://slack.com/ssb/download-osx-silicon --output ~/Downloads/slack.dmg
 else
     echo "Architecture is Intel X86"
-    curl https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg --output ~/Downloads/googlechrome.dmg
+    curl -L https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg --output ~/Downloads/googlechrome.dmg
     curl -L https://slack.com/ssb/download-osx --output ~/Downloads/slack.dmg
 fi
 curl https://dl.google.com/drive-file-stream/GoogleDrive.dmg --output ~/Downloads/GoogleDrive.dmg
