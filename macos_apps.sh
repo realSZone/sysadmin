@@ -2,7 +2,7 @@
 if
     [[ `arch` == arm64 ]]; then
     echo "Architecture is Apple ARM"
-    curl https://dl.google.com/chrome/mac/universal/stable/GGRO/googlechrome.dmg --output ~/Downloads/googlechrome.dmg
+    curl -L "https://dl.google.com/chrome/mac/universal/stable/GGRO/googlechrome.dmg" --output ~/Downloads/googlechrome.dmg
     curl -L https://slack.com/ssb/download-osx-silicon --output ~/Downloads/slack.dmg
 else
     echo "Architecture is Intel X86"
