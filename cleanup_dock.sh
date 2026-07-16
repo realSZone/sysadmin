@@ -23,7 +23,8 @@ add_item () {
 /usr/bin/defaults write com.apple.dock persistent-others -array
 
 # Add back only the items you want
-add_item "/System/Library/CoreServices/Finder.app"
+#add_item "/System/Library/CoreServices/Finder.app"
+#finder (doesn't seem to be necessary), it will remain anyway
 add_item "/System/Applications/Apps.app"
 add_item "/System/Applications/System Settings.app"
 
