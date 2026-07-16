@@ -1,33 +1,32 @@
 #!/bin/bash
 set -euo pipefail
 
-DOCK_PLIST="$HOME/Library/Preferences/com.apple.dock.plist"
+add_item () {
+  local app_path="$1"
+  /usr/bin/defaults write com.apple.dock persistent-apps -array-add "
+<dict>
+  <key>tile-data</key>
+  <dict>
+    <key>file-data</key>
+    <dict>
+      <key>_CFURLString</key>
+      <string>${app_path}</string>
+      <key>_CFURLStringType</key>
+      <integer>0</integer>
+    </dict>
+  </dict>
+</dict>"
+}
 
-plutil -replace persistent-apps -json '[
-  {
-    "tile-data": {
-      "file-data": {
-        "_CFURLString": "/System/Library/CoreServices/Finder.app",
-        "_CFURLStringType": 0
-      }
-    }
-  },
-  {
-    "tile-data": {
-      "file-data": {
-        "_CFURLString": "/System/Applications/Apps.app",
-        "_CFURLStringType": 0
-      }
-    }
-  },
-  {
-    "tile-data": {
-      "file-data": {
-        "_CFURLString": "/System/Applications/System Settings.app",
-        "_CFURLStringType": 0
-      }
-    }
-  }
-]' "$DOCK_PLIST"
+# Clear everything currently pinned
+/usr/bin/defaults write com.apple.dock persistent-apps -array
+/usr/bin/defaults write com.apple.dock persistent-others -array
 
-killall Dock
+# Add back only the items you want
+add_item "/System/Library/CoreServices/Finder.app"
+add_item "/System/Applications/Apps.app"
+add_item "/System/Applications/System Settings.app"
+
+# Reload prefs and Dock
+/usr/bin/killall cfprefsd 2>/dev/null || true
+/usr/bin/killall Dock
