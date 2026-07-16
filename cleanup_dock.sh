@@ -18,6 +18,11 @@ add_item () {
 </dict>"
 }
 
+add_item_if_exists() {
+    local app="$1"
+    [[ -d "$app" ]] && add_item "$app"
+}
+
 # Clear everything currently pinned
 /usr/bin/defaults write com.apple.dock persistent-apps -array
 /usr/bin/defaults write com.apple.dock persistent-others -array
@@ -25,6 +30,10 @@ add_item () {
 # Add back only the items you want
 add_item "/System/Applications/Apps.app"
 add_item "/System/Applications/System Settings.app"
+add_item_if_exists "/Applications/Google Chrome.app"
+add_item_if_exists "/Applications/Slack.app"
+add_item_if_exists "/Applications/Workspace ONE Intelligent Hub.app"
+add_item_if_exists "/Applications/Google Drive.app"
 
 # Reload prefs and Dock
 /usr/bin/killall cfprefsd 2>/dev/null || true
