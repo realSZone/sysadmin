@@ -1,3 +1,10 @@
+## Mac
+### Install applications
+Terminal:
+```
+sudo zsh ~/Downloads/mac_install_apps.sh
+```
+
 ## Windows
 ### Install applications
 Terminal (run as administrator):
