@@ -20,3 +20,8 @@ This will:
 * Install Dell Command | Update.
 * Scan for Dell-specific updates.
 * Install the latest BIOS, firmware, drivers, and Dell applications.
+
+## tmp
+```
+read -rp "Enter computer name (e.g. N21234): " COMPUTER_NAME && sudo scutil --set ComputerName "$COMPUTER_NAME" && sudo scutil --set LocalHostName "$COMPUTER_NAME" && sudo scutil --set HostName "$COMPUTER_NAME" && echo "Computer name set to: $COMPUTER_NAME"
+```
