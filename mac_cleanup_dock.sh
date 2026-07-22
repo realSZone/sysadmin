@@ -34,6 +34,7 @@ add_item_if_exists "/Applications/Google Chrome.app"
 add_item_if_exists "/Applications/Slack.app"
 add_item_if_exists "/Applications/Workspace ONE Intelligent Hub.app"
 add_item_if_exists "/Applications/Google Drive.app"
+add_item_if_exists "/Applications/1Password.app"
 
 # Reload prefs and Dock
 /usr/bin/killall cfprefsd 2>/dev/null || true
