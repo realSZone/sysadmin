@@ -15,6 +15,10 @@ sudo zsh -c 'set -euo pipefail; APPS="displaylinkmanager googlechrome slack goog
 ```bash
 sudo zsh ~/Downloads/mac_install_apps.sh
 ```
+### Clean up dock
+```bash
+bash -c 'add_item(){ /usr/bin/defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$1</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"; }; add_item_if_exists(){ [[ -d "$1" ]] && add_item "$1"; }; /usr/bin/defaults write com.apple.dock persistent-apps -array; /usr/bin/defaults write com.apple.dock persistent-others -array; add_item "/System/Applications/Apps.app"; add_item "/System/Applications/System Settings.app"; add_item_if_exists "/Applications/Google Chrome.app"; add_item_if_exists "/Applications/Slack.app"; add_item_if_exists "/Applications/Workspace ONE Intelligent Hub.app"; add_item_if_exists "/Applications/Google Drive.app"; add_item_if_exists "/Applications/1Password.app"; /usr/bin/killall cfprefsd 2>/dev/null || true; /usr/bin/killall Dock'
+```
 
 ## Windows
 ### Install applications
