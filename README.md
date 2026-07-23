@@ -1,17 +1,17 @@
 ## Mac
 ### Change computer name
-Terminal:
 ```
 printf "Enter computer name: "; read COMPUTER_NAME && sudo scutil --set ComputerName "$COMPUTER_NAME" && sudo scutil --set LocalHostName "$COMPUTER_NAME" && sudo scutil --set HostName "$COMPUTER_NAME" && echo "Computer name set to: $COMPUTER_NAME"
 ```
 ### Download & install MDM agent
-Terminal:
 ```
 curl -fsSL -o /tmp/HubMacOS.pkg "https://packages.omnissa.com/wsone/HubMacOS.pkg" && sudo installer -pkg /tmp/HubMacOS.pkg -target / && rm -f /tmp/HubMacOS.pkg
 ```
-
-### Install applications
-Terminal:
+### Download & install applications
+```
+sudo zsh -c 'TMP=$(mktemp); curl -fsSL -o "$TMP" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh && chmod +x "$TMP" && for app in displaylinkmanager googlechrome slack googledrive 1password8; do "$TMP" "$app" DEBUG=0; done; rm -f "$TMP"'
+```
+### Install applications (download file first)
 ```
 sudo zsh ~/Downloads/mac_install_apps.sh
 ```
