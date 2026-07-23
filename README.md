@@ -9,7 +9,7 @@ curl -fsSL -o /tmp/HubMacOS.pkg "https://packages.omnissa.com/wsone/HubMacOS.pkg
 ```
 ### Download & install applications
 ```
-sudo zsh -c 'TMP=$(mktemp); curl -fsSL -o "$TMP" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh && chmod +x "$TMP" && for app in displaylinkmanager googlechrome slack googledrive 1password8; do "$TMP" "$app" DEBUG=0; done; rm -f "$TMP"'
+sudo zsh -c 'set -euo pipefail; TMPDIR=$(mktemp -d); trap "rm -rf \"$TMPDIR\"" EXIT; curl -fsSL -o "$TMPDIR/Installomator.sh" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh; chmod +x "$TMPDIR/Installomator.sh"; for label in displaylinkmanager googlechrome slack googledrive 1password8; do "$TMPDIR/Installomator.sh" "$label" DEBUG=0; done; echo "Done."'
 ```
 ### Install applications (download file first)
 ```
