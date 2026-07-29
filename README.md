@@ -7,6 +7,19 @@ printf "Enter computer name: "; read COMPUTER_NAME && sudo scutil --set Computer
 ```bash
 sudo zsh -c 'set -euo pipefail; TMPDIR=$(mktemp -d); trap "rm -rf \"$TMPDIR\"" EXIT; curl -fsSL -o "$TMPDIR/Installomator.sh" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh; chmod +x "$TMPDIR/Installomator.sh"; for label in displaylinkmanager googlechrome slack googledrive 1password8; do "$TMPDIR/Installomator.sh" "$label" DEBUG=0; done; curl -fsSL -o /tmp/HubMacOS.pkg "https://packages.omnissa.com/wsone/HubMacOS.pkg"; installer -pkg /tmp/HubMacOS.pkg -target /; rm -f /tmp/HubMacOS.pkg; echo "Done."'
 ```
+This executes in the following order:
+
+1. Download Installomator.
+2. Install:
+   * DisplayLink Manager
+   * Google Chrome
+   * Slack
+   * Google Drive
+   * 1Password 8
+3. Download Workspace ONE Intelligent Hub.
+4. Install the `.pkg`.
+5. Delete the downloaded package.
+6. Print `Done`.
 #### Download & Install MDM Agent
 ```bash
 curl -fsSL -o /tmp/HubMacOS.pkg "https://packages.omnissa.com/wsone/HubMacOS.pkg" && sudo installer -pkg /tmp/HubMacOS.pkg -target / && rm -f /tmp/HubMacOS.pkg
