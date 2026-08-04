@@ -20,18 +20,22 @@ This executes in the following order:
 4. Install the `.pkg`.
 5. Delete the downloaded package.
 6. Print `Done`.
-#### Download & Install MDM Agent
-```bash
-curl -fsSL -o /tmp/HubMacOS.pkg "https://packages.omnissa.com/wsone/HubMacOS.pkg" && sudo installer -pkg /tmp/HubMacOS.pkg -target / && rm -f /tmp/HubMacOS.pkg
-```
-#### Download & Install Applications w/o MDM Agent
-```bash
-sudo zsh -c 'set -euo pipefail; TMPDIR=$(mktemp -d); trap "rm -rf \"$TMPDIR\"" EXIT; curl -fsSL -o "$TMPDIR/Installomator.sh" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh; chmod +x "$TMPDIR/Installomator.sh"; for label in displaylinkmanager googlechrome slack googledrive 1password8; do "$TMPDIR/Installomator.sh" "$label" DEBUG=0; done; echo "Done."'
-```
-#### Install Applications (Manually Download File First)
-```bash
-sudo zsh ~/Downloads/mac_install_apps.sh
-```
+
+<!-- This is commented out ...
+  #### Download & Install MDM Agent
+  ```bash
+  curl -fsSL -o /tmp/HubMacOS.pkg "https://packages.omnissa.com/wsone/HubMacOS.pkg" && sudo installer -pkg /tmp/HubMacOS.pkg -target / && rm -f /tmp/HubMacOS.pkg
+  ```
+  #### Download & Install Applications w/o MDM Agent
+  ```bash
+  sudo zsh -c 'set -euo pipefail; TMPDIR=$(mktemp -d); trap "rm -rf \"$TMPDIR\"" EXIT; curl -fsSL -o "$TMPDIR/Installomator.sh" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh; chmod +x "$TMPDIR/Installomator.sh"; for label in displaylinkmanager googlechrome slack googledrive 1password8; do "$TMPDIR/Installomator.sh" "$label" DEBUG=0; done; echo "Done."'
+  ```
+  #### Install Applications (Manually Download File First)
+  ```bash
+  sudo zsh ~/Downloads/mac_install_apps.sh
+  ```
+... This is commented out -->
+
 #### Install MS Office (remove non-wanted apps)
 ```bash
 sudo zsh -c 'set -euo pipefail; TMPDIR=$(mktemp -d); trap "rm -rf \"$TMPDIR\"" EXIT; curl -fsSL -o "$TMPDIR/Installomator.sh" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh; chmod +x "$TMPDIR/Installomator.sh"; for label in microsoftword microsoftexcel microsoftpowerpoint microsoftoutlook microsoftonenote; do "$TMPDIR/Installomator.sh" "$label" DEBUG=0; done; echo "Done."'
