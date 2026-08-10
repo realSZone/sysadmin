@@ -5,7 +5,7 @@ printf "Enter computer name: "; read COMPUTER_NAME && sudo scutil --set Computer
 ```
 ### Download & Install Applications
 ```bash
-sudo zsh -c 'set -euo pipefail; TMPDIR=$(mktemp -d); trap "rm -rf \"$TMPDIR\"" EXIT; curl -fsSL -o "$TMPDIR/Installomator.sh" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh; chmod +x "$TMPDIR/Installomator.sh"; for label in displaylinkmanager googlechrome slack googledrive 1password8; do "$TMPDIR/Installomator.sh" "$label" DEBUG=0; done; curl -fsSL -o /tmp/HubMacOS.pkg "https://packages.omnissa.com/wsone/HubMacOS.pkg"; installer -pkg /tmp/HubMacOS.pkg -target /; rm -f /tmp/HubMacOS.pkg; echo "Done."'
+sudo zsh -c 'set -euo pipefail; TMPDIR=$(mktemp -d); trap "rm -rf \"$TMPDIR\"" EXIT; curl -fsSL -o "$TMPDIR/Installomator.sh" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh; chmod +x "$TMPDIR/Installomator.sh"; for label in displaylinkmanager googlechromepkg slack googledrive 1password8; do "$TMPDIR/Installomator.sh" "$label" DEBUG=0; done; curl -fsSL -o /tmp/HubMacOS.pkg "https://packages.omnissa.com/wsone/HubMacOS.pkg"; installer -pkg /tmp/HubMacOS.pkg -target /; rm -f /tmp/HubMacOS.pkg; echo "Done."'
 ```
 This executes in the following order:
 
@@ -28,7 +28,7 @@ This executes in the following order:
   ```
   #### Download & Install Applications w/o MDM Agent
   ```bash
-  sudo zsh -c 'set -euo pipefail; TMPDIR=$(mktemp -d); trap "rm -rf \"$TMPDIR\"" EXIT; curl -fsSL -o "$TMPDIR/Installomator.sh" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh; chmod +x "$TMPDIR/Installomator.sh"; for label in displaylinkmanager googlechrome slack googledrive 1password8; do "$TMPDIR/Installomator.sh" "$label" DEBUG=0; done; echo "Done."'
+  sudo zsh -c 'set -euo pipefail; TMPDIR=$(mktemp -d); trap "rm -rf \"$TMPDIR\"" EXIT; curl -fsSL -o "$TMPDIR/Installomator.sh" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh; chmod +x "$TMPDIR/Installomator.sh"; for label in displaylinkmanager googlechromepkg slack googledrive 1password8; do "$TMPDIR/Installomator.sh" "$label" DEBUG=0; done; echo "Done."'
   ```
   #### Install Applications (Manually Download File First)
   ```bash
