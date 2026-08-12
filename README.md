@@ -51,6 +51,9 @@ Terminal (run as administrator):
 ```powershell
 PowerShell -ExecutionPolicy Bypass -File .\Downloads\win_install_apps.ps1
 ```
+```powershell
+$packages=@("DisplayLink.GraphicsDriver","Google.Chrome","SlackTechnologies.Slack","Google.GoogleDrive","AgileBits.1Password","7zip.7zip"); foreach($package in $packages){ winget install --id $package --exact --source winget --accept-package-agreements --accept-source-agreements }
+```
 ### Install Dell Command | Update
 Terminal (run as administrator):
 ```powershell
