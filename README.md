@@ -65,7 +65,7 @@ This installs the following applications using Windows Package Manager (winget):
 #### Install Dell Command | Update (optional)
 Terminal (run as administrator):
 ```powershell
-PowerShell -ExecutionPolicy Bypass -File .\Downloads\win_install_dellcmdupdate.ps1
+winget install --id Dell.CommandUpdate.Universal -e --source winget && & "$env:ProgramFiles\Dell\CommandUpdate\dcu-cli.exe" /applyUpdates -silent
 ```
 This will:
 * Install Dell Command | Update.
