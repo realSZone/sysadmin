@@ -49,11 +49,18 @@ bash -lc 'set -euo pipefail; add_item(){ /usr/bin/defaults write com.apple.dock 
 ### Install Applications
 Terminal (run as administrator):
 ```powershell
-PowerShell -ExecutionPolicy Bypass -File .\Downloads\win_install_apps.ps1
-```
-```powershell
 $packages=@("DisplayLink.GraphicsDriver","Google.Chrome","SlackTechnologies.Slack","Google.GoogleDrive","AgileBits.1Password","7zip.7zip","Omnissa.WorkspaceONEIntelligentHub"); foreach($package in $packages){ winget install --id $package --exact --source winget --accept-package-agreements --accept-source-agreements }
 ```
+This installs the following applications using Windows Package Manager (winget):
+
+* DisplayLink Graphics Driver
+* Google Chrome
+* Slack
+* Google Drive
+* 1Password
+* 7-Zip
+* Workspace ONE Intelligent Hub
+
 ### Install Dell Command | Update
 Terminal (run as administrator):
 ```powershell
