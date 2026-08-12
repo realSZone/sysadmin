@@ -36,7 +36,8 @@ This executes in the following order:
   ```
 ... This is commented out -->
 
-#### Install MS Office (remove non-wanted apps)
+#### Install MS Office (optional)
+👉 remove unwanted apps from script (after `for label in `)
 ```bash
 sudo zsh -c 'set -euo pipefail; TMPDIR=$(mktemp -d); trap "rm -rf \"$TMPDIR\"" EXIT; curl -fsSL -o "$TMPDIR/Installomator.sh" https://raw.githubusercontent.com/Installomator/Installomator/release/Installomator.sh; chmod +x "$TMPDIR/Installomator.sh"; for label in microsoftword microsoftexcel microsoftpowerpoint microsoftoutlook microsoftonenote; do "$TMPDIR/Installomator.sh" "$label" DEBUG=0; done; echo "Done."'
 ```
@@ -61,7 +62,7 @@ This installs the following applications using Windows Package Manager (winget):
 * 7-Zip
 * Workspace ONE Intelligent Hub
 
-### Install Dell Command | Update
+#### Install Dell Command | Update (optional)
 Terminal (run as administrator):
 ```powershell
 PowerShell -ExecutionPolicy Bypass -File .\Downloads\win_install_dellcmdupdate.ps1
