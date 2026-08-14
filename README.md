@@ -62,6 +62,7 @@ This installs the following applications using Windows Package Manager (winget):
 * 7-Zip
 * Workspace ONE Intelligent Hub
 
+### Clean Up Taskbar & Desktop
 ```powershell
 $Shell=New-Object -ComObject Shell.Application; @("Microsoft Store","Outlook") | ForEach-Object { $n=$_; $Shell.Namespace("shell:AppsFolder").Items() | Where-Object {$_.Name -eq $n} | ForEach-Object {$_.InvokeVerb("taskbarunpin")} }; Get-ChildItem "$env:USERPROFILE\Desktop","$env:PUBLIC\Desktop" -Force -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force
 ```
