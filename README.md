@@ -62,6 +62,10 @@ This installs the following applications using Windows Package Manager (winget):
 * 7-Zip
 * Workspace ONE Intelligent Hub
 
+```powershell
+$remove=@("Microsoft Store","Outlook"); $add=@("$env:ProgramFiles\Google\Chrome\Application\chrome.exe","$env:LOCALAPPDATA\slack\slack.exe","$env:LOCALAPPDATA\1Password\app\8\1Password.exe"); $shell=New-Object -ComObject Shell.Application; foreach($name in $remove){$shell.Namespace("shell:AppsFolder").Items()|Where-Object{$_.Name -eq $name}|ForEach-Object{$_.InvokeVerb("taskbarunpin")}}; foreach($path in $add){if(Test-Path $path){$shell.Namespace((Split-Path $path)).ParseName((Split-Path $path -Leaf)).InvokeVerb("taskbarpin")}}; Get-ChildItem "$env:USERPROFILE\Desktop" -Force -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force; Get-ChildItem "$env:PUBLIC\Desktop" -Force -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force
+```
+
 #### Install Dell Command | Update (optional)
 Terminal (run as administrator):
 ```powershell
