@@ -62,6 +62,12 @@ This installs the following applications using Windows Package Manager (winget):
 * 7-Zip
 * Workspace ONE Intelligent Hub
 
+#### if Workspace ONE Intelligent Hub fails, try
+```powershell
+winget install -e --id Omnissa.WorkspaceONEIntelligentHub
+```
+or install it manually!
+
 #### Install Dell Command | Update (optional)
 Terminal (run as administrator):
 ```powershell
