@@ -74,6 +74,12 @@ Terminal (run as administrator):
 $d="$env:TEMP\UbuntuFonts"; Remove-Item $d -Recurse -Force -ErrorAction SilentlyContinue; New-Item -ItemType Directory $d | Out-Null; @("Ubuntu-Light.ttf","Ubuntu-LightItalic.ttf","Ubuntu-Regular.ttf","Ubuntu-Italic.ttf","Ubuntu-Medium.ttf","Ubuntu-MediumItalic.ttf","Ubuntu-Bold.ttf","Ubuntu-BoldItalic.ttf") | ForEach-Object { Invoke-WebRequest -Uri "https://raw.githubusercontent.com/google/fonts/main/ufl/ubuntu/$_" -OutFile "$d\$_" }; $fonts=(New-Object -ComObject Shell.Application).Namespace(0x14); Get-ChildItem $d -Filter *.ttf | ForEach-Object { $fonts.CopyHere($_.FullName,0x10) }; Remove-Item $d -Recurse -Force
 ```
 
+#### Install Google Docs, Sheets and Slides as Chrome PWAs
+Terminal (run as administrator):
+```powershell
+$p="HKLM:\SOFTWARE\Policies\Google\Chrome"; New-Item $p -Force | Out-Null; New-ItemProperty $p -Name WebAppInstallForceList -PropertyType String -Value '[{"url":"https://docs.google.com/document/installwebapp?usp=admin","default_launch_container":"window"},{"url":"https://docs.google.com/spreadsheets/installwebapp?usp=admin","default_launch_container":"window"},{"url":"https://docs.google.com/presentation/installwebapp?usp=admin","default_launch_container":"window"}]' -Force | Out-Null
+```
+
 #### Install Dell Command | Update (optional)
 Terminal (run as administrator):
 ```powershell
