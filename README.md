@@ -71,7 +71,7 @@ or install it manually!
 #### Install Ubuntu Fonts
 Terminal (run as administrator):
 ```powershell
-$z="$env:TEMP\Ubuntu.zip"; irm "https://fonts.google.com/download?family=Ubuntu" -OutFile $z; $d="$env:TEMP\Ubuntu"; Expand-Archive $z $d -Force; $shell=New-Object -ComObject Shell.Application; $fonts=$shell.Namespace(0x14); Get-ChildItem $d -Recurse -Include *.ttf,*.otf | ForEach-Object { $fonts.CopyHere($_.FullName,0x10) }; Remove-Item $z,$d -Recurse -Force
+$d="$env:TEMP\UbuntuFonts"; Remove-Item $d -Recurse -Force -ErrorAction SilentlyContinue; New-Item -ItemType Directory $d | Out-Null; @("Ubuntu-Light.ttf","Ubuntu-LightItalic.ttf","Ubuntu-Regular.ttf","Ubuntu-Italic.ttf","Ubuntu-Medium.ttf","Ubuntu-MediumItalic.ttf","Ubuntu-Bold.ttf","Ubuntu-BoldItalic.ttf") | ForEach-Object { Invoke-WebRequest -Uri "https://raw.githubusercontent.com/google/fonts/main/ufl/ubuntu/$_" -OutFile "$d\$_" }; $fonts=(New-Object -ComObject Shell.Application).Namespace(0x14); Get-ChildItem $d -Filter *.ttf | ForEach-Object { $fonts.CopyHere($_.FullName,0x10) }; Remove-Item $d -Recurse -Force
 ```
 
 #### Install Dell Command | Update (optional)
