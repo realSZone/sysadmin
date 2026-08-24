@@ -77,7 +77,7 @@ $d="$env:TEMP\UbuntuFonts"; Remove-Item $d -Recurse -Force -ErrorAction Silently
 #### Install Google Docs, Sheets and Slides as Chrome PWAs
 Terminal (run as administrator):
 ```powershell
-$p="HKLM:\SOFTWARE\Policies\Google\Chrome"; New-Item $p -Force | Out-Null; New-ItemProperty $p -Name WebAppInstallForceList -PropertyType String -Value '[{"url":"https://docs.google.com/document/installwebapp?usp=admin","default_launch_container":"window"},{"url":"https://docs.google.com/spreadsheets/installwebapp?usp=admin","default_launch_container":"window"},{"url":"https://docs.google.com/presentation/installwebapp?usp=admin","default_launch_container":"window"}]' -Force | Out-Null
+$p="HKLM:\SOFTWARE\Policies\Google\Chrome"; New-Item $p -Force | Out-Null; New-ItemProperty $p -Name WebAppInstallForceList -PropertyType String -Value '[{"url":"https://docs.google.com/document/installwebapp?usp=admin","default_launch_container":"window","create_desktop_shortcut":true},{"url":"https://docs.google.com/spreadsheets/installwebapp?usp=admin","default_launch_container":"window","create_desktop_shortcut":true},{"url":"https://docs.google.com/presentation/installwebapp?usp=admin","default_launch_container":"window","create_desktop_shortcut":true}]' -Force | Out-Null
 ```
 
 #### Install Dell Command | Update (optional)
