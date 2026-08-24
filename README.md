@@ -68,6 +68,12 @@ winget install -e --id Omnissa.WorkspaceONEIntelligentHub
 ```
 or install it manually!
 
+#### Install Ubuntu Fonts
+Terminal (run as administrator):
+```powershell
+$z="$env:TEMP\Ubuntu.zip"; irm "https://fonts.google.com/download?family=Ubuntu" -OutFile $z; $d="$env:TEMP\Ubuntu"; Expand-Archive $z $d -Force; $shell=New-Object -ComObject Shell.Application; $fonts=$shell.Namespace(0x14); Get-ChildItem $d -Recurse -Include *.ttf,*.otf | ForEach-Object { $fonts.CopyHere($_.FullName,0x10) }; Remove-Item $z,$d -Recurse -Force
+```
+
 #### Install Dell Command | Update (optional)
 Terminal (run as administrator):
 ```powershell
